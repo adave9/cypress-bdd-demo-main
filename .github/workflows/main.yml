@@ -32,9 +32,11 @@ jobs:
       run: npm run cypress:run
 
     - name: Generate Mochawesome report
+      if: always()
       run: npm run posttest
 
     - name: Upload Mochawesome report
+      if: always()
       uses: actions/upload-artifact@v4
       with:
         name: mochawesome-report
