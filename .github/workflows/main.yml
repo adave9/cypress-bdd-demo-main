@@ -14,15 +14,15 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     
     - name: Install Node.js and NPM
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
     
     - name: Cache node modules
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -39,7 +39,7 @@ jobs:
       run: npm run posttest
 
     - name: Upload Mochawesome report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: mochawesome-report
         path: cypress/reports/mochawesome.html
